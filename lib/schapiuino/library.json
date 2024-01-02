@@ -1,0 +1,10 @@
+{
+  "name": "schapiuino",
+  "keywords": "Ethernet, EthernetClient, EthernetServer, API, REST",
+  "description": "A basic library to handle a Client HTTP and a Server HTTP using an Arduino UNO and an Ethernet Shield",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jomaora/schapiuino.git"
+  },
+  "frameworks": "arduino"
+}

@@ -1,0 +1,54 @@
+<html>
+
+<body>
+    <script type='text/javascript'>
+
+        document.addEventListener('keypress', function (event) {
+            var requestBody = null;
+            var doRequest = false;
+
+            if (event.keyCode == 13) {
+                requestBody = 'enter';
+                doRequest = true;
+            } else if (event.keyCode == 1092 || event.keyCode == 97) {
+                requestBody = 'direct:left';
+                doRequest = true;
+            } else if (event.keyCode == 1074 || event.keyCode == 100) {
+                requestBody = 'direct:right';
+                doRequest = true;
+            } else if (event.keyCode == 1094 || event.keyCode == 119) {
+                requestBody = 'direct:up';
+                doRequest = true;
+            } else if (event.keyCode == 1099 || event.keyCode == 115) {
+                requestBody = 'direct:down';
+                doRequest = true;
+            } else if (event.keyCode == 113) {
+                requestBody = 'direct:up-left';
+                doRequest = true;
+            } else if (event.keyCode == 101) {
+                requestBody = 'direct:up-right';
+                doRequest = true;
+            }
+
+
+            if (doRequest){
+                fetch('http://192.168.0.150/move',
+                {
+                    mode: 'no-cors',
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: requestBody
+                })
+                .then(response => {
+                    console.log(response);
+                    return response.body;
+                })
+                .then(data => {
+                    console.log(data)
+                });
+            }
+            
+        });
+    </script>
+
+</html>
